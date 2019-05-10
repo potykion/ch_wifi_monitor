@@ -1,6 +1,6 @@
 # ch_wifi_monitor
 
-
+WiFi speed monitoring via ClickHouse
 
 ## Setup
 
