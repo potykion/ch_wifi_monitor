@@ -2,7 +2,7 @@ from typing import Dict
 
 import speedtest
 
-from ch_wifi_monitor.utils import dt_to_local
+from ch_wifi_monitor.utils import format_date
 
 
 def request_speed() -> speedtest.SpeedtestResults:
@@ -17,12 +17,8 @@ def format_speed(results: speedtest.SpeedtestResults) -> Dict:
     """
     See data/speed.json for example of {results}.json()
     """
-    local_datetime = dt_to_local(results.timestamp)
-
     return dict(
-        date=local_datetime.date(),
-        hour=local_datetime.hour,
-        minute=local_datetime.minute,
+        dt=format_date(results.timestamp),
         client_ip=results.client["ip"],
         download_speed=results.download,
         upload_speed=results.upload,

@@ -16,18 +16,17 @@ engine = sa.create_engine(DATABASE_URL)
 metadata = sa.MetaData(engine)
 session: Session = make_session(engine)
 
+
 wifi_table = Table(
     "wifi", metadata,
-    sa.Column("date", types.Date),
-    sa.Column("hour", types.Int),
-    sa.Column("minute", types.Int),
+    sa.Column("dt", types.DateTime),
     sa.Column("client_ip", types.String),
     sa.Column("download_speed", types.Float),
     sa.Column("upload_speed", types.Float),
     sa.Column("ping", types.Float),
     sa.Column("bytes_sent", types.Int),
     sa.Column("bytes_received", types.Int),
-    engines.MergeTree("date", ("date", "client_ip"))
+    engines.Memory()
 )
 
 
@@ -38,4 +37,4 @@ def insert_speed(speed: Dict) -> None:
 
 if __name__ == '__main__':
     with contextlib.suppress(RuntimeError):
-        metadata.create_all()
+        wifi_table.create()

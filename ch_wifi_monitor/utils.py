@@ -1,15 +1,12 @@
-import datetime
-
-import delorean
+from dateutil.parser import parse
 
 
-def dt_to_local(dt_str: str) -> datetime:
+def format_date(timestamp_str: str) -> str:
     """
-    >>> dt_to_local("2019-05-12T12:42:28.767302Z").strftime("%Y-%m-%d %H:%M:%S")
-    '2019-05-12 15:42:28'
+    >>> format_date("2019-05-12T12:42:28.767302Z")
+    '2019-05-12 12:42:28'
     """
-    parsed = delorean.parse(dt_str, dayfirst=False)
-    return parsed.shift("Europe/Moscow").datetime
+    return parse(timestamp_str).strftime("%Y-%m-%d %H:%M:%S")
 
 
 def to_mbs(bs: float) -> float:
