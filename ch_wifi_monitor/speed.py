@@ -15,7 +15,7 @@ def request_speed() -> speedtest.SpeedtestResults:
 
 def format_speed(results: speedtest.SpeedtestResults) -> Dict:
     """
-    See speed.json for example {results}.json()
+    See data/speed.json for example of {results}.json()
     """
     local_datetime = dt_to_local(results.timestamp)
 

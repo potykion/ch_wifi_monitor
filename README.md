@@ -16,7 +16,7 @@ WiFi speed monitoring via ClickHouse
 
     [Reference](https://clickhouse.yandex/docs/en/query_language/create/#create-database)
     
-3. Setup database url via .env:
+3. Setup database url via `.env`:
 
     ```
     DATABASE_URL = clickhouse://default:@192.168.99.100/wifi
@@ -51,6 +51,11 @@ WiFi speed monitoring via ClickHouse
     use wifi;
     select * from wifi;
     ```
+
+8. Create win service (e.g. via [nssm](http://nssm.cc/usage)) to insert data continuously:
+
+    ![nssm](data/nssm.png)
+
 
     
 ## Used libs 
