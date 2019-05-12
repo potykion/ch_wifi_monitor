@@ -4,7 +4,7 @@ from ch_wifi_monitor.db import insert_speed
 from ch_wifi_monitor.speed import request_speed, format_speed
 from ch_wifi_monitor.utils import to_mbs
 
-HOUR = 60 * 60 * 24
+HOUR = 60 * 60
 
 if __name__ == '__main__':
     while True:
