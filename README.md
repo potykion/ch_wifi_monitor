@@ -56,6 +56,10 @@ WiFi speed monitoring via ClickHouse
 
     ![nssm](data/nssm.png)
 
+9. Visualize metrics via Graphana (*installation is straightforward*):
+
+    ![graphite](data/graphite.png)
+
 
     
 ## Used libs 
